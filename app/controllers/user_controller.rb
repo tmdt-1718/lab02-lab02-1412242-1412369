@@ -1,8 +1,5 @@
 class UserController < ApplicationController
   def index
-    message=Message.all
-    conservation = Conservation.all
-    puts "----------------------------->#{message}"
-    puts "----------------------------->#{conservation}"
+    puts "go here before change to conservation"
   end
 end
