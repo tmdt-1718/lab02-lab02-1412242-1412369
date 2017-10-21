@@ -1,1 +1,6 @@
 <h2>Show me/h2>
+<ul>
+  <% @messages.each do |item| %>
+  <li class="float:right"><%=item.sender%>:<%=item.content%>:<%=item.conservation_id%></li>
+  <% end %>
+</ul>
