@@ -42,19 +42,9 @@ ActiveRecord::Schema.define(version: 20171022083101) do
     t.index ["conservation_id"], name: "index_messages_on_conservation_id"
   end
 
-  create_table "user_conservations", force: :cascade do |t|
-    t.bigint "user_id"
-    t.bigint "conservation_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["conservation_id"], name: "index_user_conservations_on_conservation_id"
-    t.index ["user_id"], name: "index_user_conservations_on_user_id"
-  end
-
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "email"
-    t.string "password"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "avatar"
