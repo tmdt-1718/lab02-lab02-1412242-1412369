@@ -1,6 +1,36 @@
-<h2>Show me/h2>
-<ul>
-  <% @messages.each do |item| %>
-  <li class="float:right"><%=item.sender%>:<%=item.content%>:<%=item.conservation_id%></li>
-  <% end %>
-</ul>
+<div class="container">
+  <div class="row" style="margin-top:30px;">
+    <div class="col-md-3">
+      <legend>Your conservation</legend>
+      <hr>
+      <ul>
+        <% @conservations.each do |conservation|%>
+        
+        <%end%>
+        <li>
+
+        </li>
+      </ul>
+    </div>
+    <div class="col-md-9" style="margin-top:20px;">
+      <div class="message">
+        <ul>
+          <% @messages.each do |item| %>
+          <div class="row" style="margin:20px;">
+            <img src="<%=item.avatar%>" alt="">
+            <div class="col-md-10">
+              <div class="content">
+                <span style="color:#FF9800">usernamw</span>
+                <li>
+                  <%=item.content%><%=item.content%>
+                  <%=item.content%><%=item.content%>
+                </li>
+              </div>
+            </div>
+          </div>
+          <%end%>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,2 +1,12 @@
 <h1>Conservation#index</h1>
+<%path = request.fullpath%>
 <p>Find me in app/views/conservation/index.html.erb</p>
+<table>
+  <% @conservations.each do |conservation|%>
+  <tr>
+    <td><%=conservation.id%>:<%=conservation.name%> </td>
+    <td><%=link_to 'English', url_for( :id => conservation.id )%></td>
+    <td><a href="<%=path%>/<%=conservation.id%>">aa</a></td>
+  </tr>
+    <% end %>
+</table>

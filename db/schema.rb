@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171021190214) do
+ActiveRecord::Schema.define(version: 20171022083101) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,8 @@ ActiveRecord::Schema.define(version: 20171021190214) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "user1_name"
+    t.string "user2_name"
   end
 
   create_table "conservations_users", id: false, force: :cascade do |t|
@@ -36,6 +38,7 @@ ActiveRecord::Schema.define(version: 20171021190214) do
     t.bigint "conservation_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "sender_name"
     t.index ["conservation_id"], name: "index_messages_on_conservation_id"
   end
 
