@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+
+  post    "create_message"    => "message#create"
   post    "sesion_login"    => "sessions#create"
   get  "logout"   => "sessions#destroy"
   get     "login"     => "users#index"
@@ -8,9 +10,9 @@ Rails.application.routes.draw do
  resources :friends, only: [:destroy]
   resources :users, only: [:create]
   # resources :conservation, only: [:index]
-  resources :user do
-    resources :conservation, only: [:index, :show]
+  resources :messages, only: [:create]
+  resources :user, only: [:index] do
+    resources :conservation, only: [:index, :show, :create]
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
-
