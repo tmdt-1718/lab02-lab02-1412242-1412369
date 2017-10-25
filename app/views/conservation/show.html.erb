@@ -1,6 +1,63 @@
-<h2>Show me/h2>
-<ul>
-  <% @messages.each do |item| %>
-  <li class="float:right"><%=item.sender%>:<%=item.content%>:<%=item.conservation_id%></li>
-  <% end %>
-</ul>
+<div class="conservation">
+  <div class="row">
+    <div class="col-md-3" style="border-right:1px solid grey">
+      <legend>Your conversation</legend>
+      <hr>
+      <div class="list-conversation">
+        <% @conservations.each do |conservation|%>
+        <%
+        receiver = conservation.user1_name
+        if @sender.id.to_s == conservation.user1
+          receiver = conservation.user2_name
+          puts "-------------->#{receiver}"
+        end
+        %>
+        <a href="/user/<%=params[:user_id]%>/conservation/<%=conservation.id%>" id="<%=conservation.id%>" class="list-group-item list-group-item-action flex-column align-items-start">
+          <div class="d-flex w-100 justify-content-between">
+            <h6 class="mb-1"><%=receiver%></h6>
+
+          </div>
+          <%if conservation.is_read == "false" %>
+          <span class="badge badge-danger">New message</span>
+          <%end%>
+          <span class="badge badge-default">Last active
+            <%=conservation.created_at.strftime("%d-%m-%Y")%></span>
+        </a>
+        <hr>
+        <%end%>
+      </div>
+    </div>
+    <div class="col-md-9">
+      <div class="message">
+        <ul>
+          <% @messages.each do |item| %>
+          <div class="row" style="margin:20px;">
+            <img src="<%=item.avatar%>" alt="">
+            <div class="col-md-10">
+              <div class="content">
+                <span style="color:#FF9800"><%=item.sender_name%></span>
+                <span class="badge badge-success">Seen
+                  <%=item.created_at.strftime("%d-%m-%Y")%></span>
+                <li>
+                  <%puts "------------>is_read#{item.is_read}"%>
+                  <%=item.content%><%=item.content%>
+                  <%=item.content%><%=item.content%>
+                </li>
+              </div>
+            </div>
+          </div>
+          <%end%>
+        </ul>
+      </div>
+      <%= form_for :message, url: create_message_path do |f| %>
+      <div class="form-group">
+        <%= f.text_area :content, placeholder: "Type your message", class: "form-control" %>
+      </div>
+        <%= f.hidden_field :sender , :value => params[:user_id]%>
+        <%= f.hidden_field :conversation , :value => params[:id]%>
+        <%= f.submit "Send", class: "btn btn-info col-lg-12" %>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -1,3 +1,24 @@
-// Place all the styles related to the message controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.message {
+  color: white;
+  .content {
+    background: #607D8B;
+    border-radius: 15px;
+    border-top-left-radius: 0px;
+    display: inline-block;
+    padding: 5px;
+    font-size:14px;
+  }
+
+  img {
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+  }
+
+  ul {
+    height:450px;
+    width:100%;
+    overflow: auto;
+    list-style-type: none;
+  }
+}
