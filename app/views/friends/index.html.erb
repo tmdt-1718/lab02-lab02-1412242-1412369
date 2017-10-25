@@ -1,0 +1,58 @@
+<div class="section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <p class="text-center"><b>Contact</b></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 table-content">
+                        <table class="table table-hover table-striped">
+                            <tbody>
+                            <% @list.each do |f| %>
+                                <tr>
+                                    <td>
+                                        <img src="http://pingendo.github.io/pingendo-bootstrap/assets/user_placeholder.png" class="img-circle" width="60">
+                                    </td>
+                                    <td>
+                                        <h4>
+                                            <%= f.name %>
+                                        </h4>
+                                        <a href="mailto:<%= f.email %>"><%= f.email %></a>
+                                    </td>
+                                    <td class="table-btn">
+                                        <div class="btn-group">
+                                            <button class="btn btn-default" value="left" type="button">
+                                                <i class="fa fa-fw s  fa-comments-o"></i>Message</button>
+                                            <form>
+                                                <button id="btn-unf" class="btn btn-default" value="<%= f.id %>" type="button">
+                                                    <i class="fa fa-fw fa-user-times" ></i>Unfriend</button>
+                                            </form>
+                                        </div>
+                                    </td>
+                                <% end %>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="col-md-3 friend-form">
+                        <h2>Add new friend</h2>
+                        <div id="contact-info"></div>
+                        <%= form_for (@new_friend) do |f| %>
+                            <div class="form-group">
+                                <%= f.email_field :user2, class: "form-control", placeholder: "Enter email" %>
+                            </div>
+                            <div class="form-group">
+                                <%= f.submit "Register", class: "form-control btn-primary btn btn-new-friend" %>
+                            </div>
+                        <% end %>
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>
+
+    
