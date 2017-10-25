@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+
+  post    "create_message"    => "message#create"
   post    "sesion_login"    => "sessions#create"
   get  "logout"   => "sessions#destroy"
   get     "login"     => "users#index"
