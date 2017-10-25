@@ -7,8 +7,10 @@ Rails.application.routes.draw do
   get   "friends" => "friends#index"
   post  "friends" => "friends#create"
   
- resources :friends, only: [:destroy]
-  resources :users, only: [:create]
+  resources :friends, only: [:destroy]
+  resources :users, only: [:create] do
+    resources :conservation, only: [:index, :show, :create]
+  end
   # resources :conservation, only: [:index]
   resources :messages, only: [:create]
   resources :user, only: [:index] do
