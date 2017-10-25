@@ -6,7 +6,7 @@ Thành viên:
 * [x] 1412242 Nguyễn Quốc Khánh (1412242)
 * [x] 1412369 Lý Thành Nhân (1412369)
 
-URL: **URL hosting của bài tập**
+URL: https://tmdt-lab02-th2014.herokuapp.com/login
 
 ## Yêu cầu
 
